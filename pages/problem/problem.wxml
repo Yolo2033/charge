@@ -1,0 +1,27 @@
+<form bindsubmit="formSubmit">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">问题类型</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker value="{{dcType_index}}" bindchange="bindPickerChange" range-key="name" range="{{dcType}}">
+          <view class="weui-input">
+            <text wx:if="{{pickerType}}">请选择</text>
+            <text wx:else>{{dcType[dcType_index].name}}</text>
+            <input name="problemId" value="{{dcType[dcType_index].id}}" style="overflow:hiddle" />
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">问题描述</view>
+      </view>
+      <view class="weui-cell__bd">
+        <textarea placeholder="请输入问题描述" name="problemDetail" style="padding-top:15px;"></textarea>
+      </view>
+    </view>
+  </view>
+  <button style="margin-top:50rpx" type="primary" size="default" loading="{{loading}}" formType="submit"> 问题反馈 </button>
+</form>

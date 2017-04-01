@@ -1,0 +1,217 @@
+view, text {
+  box-sizing: border-box;
+}
+
+.botton-view, .img-view, .text-view {
+  text-align: center;
+}
+
+.text-view {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.botton-size {
+  width: 150px;
+  height: 45px;
+  line-height: 45px;
+  background: #fec000;
+  border: 10px;
+  color: #fff;
+  border-radius: 30px;
+  margin: auto;
+}
+
+.img-view_image {
+  width: 220px;
+  height: 200px;
+  background-image: url("https://wx.eeyycc.cn/images/device-none.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 220px;
+}
+
+.botton-list-padding {
+  padding: 0 60rpx 0 60rpx;
+}
+
+.botton-list-color {
+  color: #11cd6e;
+}
+
+.bottom-prompt {
+  width: 95%;
+  margin: auto;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.prompt-text {
+  color: #666;
+  font-size: 16px;
+}
+
+.prompt-icon {
+  width: 60px;
+  height: 60px;
+  background-image: url("https://wx.eeyycc.cn/images/prompt.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+}
+
+/*-----充电中样式-----*/
+
+.timer_main {
+  padding:20px 0 20px 0 ;
+  position: relative;
+  display: flex;
+  flex: 2;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #4fa800;
+  transition: all 0.5s;
+  z-index: 1;
+}
+
+.timer_time-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.timer_progress {
+  position: absolute;
+  top: 0;
+  width: 75px;
+  height: 150px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.timer_progress_mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 3px solid #1589eb;
+  opacity: 0.5;
+  border-radius: 50%;
+}
+
+.timer_left {
+  left: 0;
+}
+
+.timer_right {
+  right: 0;
+}
+
+.timer_circle {
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.timer_circle--left {
+  left: 0;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  transform: rotate(45deg);
+}
+
+.timer_circle--right {
+  right: 0;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  transform: rotate(-45deg);
+}
+
+.timer_time {
+  font-size: 40px;
+  color: #fff;
+  font-weight: lighter;
+  transition: font-size 0.3s;
+}
+
+.timer_done {
+  width: 64px;
+  height: 64px;
+}
+
+.timer_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding-top: 40px;
+  transition: all 0.3s;
+}
+
+.timer .timer_ctrl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  margin: 0 20px;
+  border-radius: 50%;
+  transition: all 0.7s;
+  background-color: #48c23d;
+}
+
+/*runing style*/
+
+.timer--runing .timer_main {
+  flex: 1;
+}
+
+.timer--runing .timer_time {
+  font-size: 45px;
+}
+
+.timer--runing .timer_time-wrap {
+  width: 200px;
+  height: 200px;
+}
+
+.timer--runing .timer_progress {
+  width: 100px;
+  height: 200px;
+}
+
+.timer--runing .timer_circle {
+  width: 200px;
+  height: 200px;
+}
+
+.timer--runing .timer_footer {
+  flex: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.timer--runing .timer_ctrl {
+  background-color: #208dea;
+  height: 30px;
+  margin-bottom: 30px;
+  border: 1px dashed #dedede;
+  border-radius: 20px;
+}

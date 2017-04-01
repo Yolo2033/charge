@@ -1,0 +1,23 @@
+/* pages/scoket/scoket.wxss */
+.timeSocket{
+    border:1rpx solid #11cd6e;
+    border-radius: 5rpx;
+    margin: 2rpx;
+    padding:15rpx;
+}
+.timeSocket_bottom{
+    margin-bottom:20rpx;
+    text-align: center;
+}
+.timeSocket_sub{
+    margin-bottom: 10rpx;
+}
+.weui-cell-padding{
+    padding: 10px 0 10px 0;
+}
+.weui-cell-padding::before{
+    left: 0;
+}
+.wx_icon{
+  height: 32px;width: 32px;
+}

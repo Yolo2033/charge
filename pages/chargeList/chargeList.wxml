@@ -1,0 +1,44 @@
+
+<!--设备端口模板---开始-->
+<import src="../../component/socket/socket.wxml" />
+<template is="socket" data="{{socket,socketData,windowHeight}}" />
+
+<!--设备端口模板---结束-->
+
+<!--搜索---开始-->
+<view class="search-bar">
+  <view class="search-icon" bindtap="viewSearch"></view>
+  <input class="search-txt" placeholder-class="search-txt-plc" placeholder="请输入关键词" type="text" />
+</view>
+
+<!--搜索---结束-->
+
+<!--列表---开始-->
+<view class="padding_60">
+  <view wx:for="{{list}}" wx:key="{{item.value}}" data-dcNo="{{item.dcNo}}" class="weui-media-box weui-media-box_text" bindtap='viewSocket'>
+    <view class="weui-media-box__title weui-media-box__title_in-text">{{item.orgName}}
+      <text wx:if="{{item.distance<1}}" style="float:right">{{item.distance}}M</text>
+      <text wx:else style="float:right">{{item.distance}}Km</text>
+    </view>
+    <view class="weui-media-box__desc">{{item.dcName}}</view>
+    <view class="weui-media-box__info">
+      <view class="weui-media-box__info__meta">
+        <text wx:if="{{item.state==1}}">状态：启用</text>
+        <text wx:else>状态：离线</text>
+      </view>
+      <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">插座数：{{item.port}}</view>
+      <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">设备号：{{item.dcNo}}</view>
+    </view>
+  </view>
+</view>
+
+<!--列表---结束-->
+<block wx:if="{{hasMore}}">
+  <view class="loading-tip">拼命加载中…</view>
+</block>
+<block wx:else>
+  <view class="loading-tip">没有更多内容了</view>
+</block>
+<block wx:if="{{showLoading}}">
+  <view class="loading">玩命加载中…</view>
+</block>

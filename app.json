@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/scanCharge/scanCharge",
+    "pages/map/map",
+    "pages/pc/pc",
+    "pages/cost/cost",
+    "pages/socket/socket",
+    "pages/chargeList/chargeList",
+    "pages/pruse/pruse",
+    "pages/credit/credit",
+    "pages/setPile/setPile",
+    "pages/userGuide/userGuide",
+    "pages/about/about",
+    "pages/usedChargeList/usedChargeList",
+    "pages/repair/repair",
+    "pages/problem/problem"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4fa800",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/home_1.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/scanCharge/scanCharge",
+        "text": "扫码充电"
+      },
+      {
+        "selectedIconPath": "images/charging_1.png",
+        "iconPath": "images/charging.png",
+        "pagePath": "pages/usedChargeList/usedChargeList",
+        "text": "常用电桩"
+      },
+      {
+        "selectedIconPath": "images/pc_1.png",
+        "iconPath": "images/pc.png",
+        "pagePath": "pages/pc/pc",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "debug": true
+}

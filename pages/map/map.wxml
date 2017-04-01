@@ -1,0 +1,1 @@
+<map id="myMap" longitude="{{point.longitude}}" latitude="{{point.latitude}}" markers="{{markers}}" covers="{{covers}}" controls="{{controls}}" bindcontroltap="controltap" show-location bindregionchange="changeLocation" scale="18" style="width: 100%; height:{{windowHeight}}px;"></map>

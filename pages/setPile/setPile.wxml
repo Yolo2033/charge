@@ -1,0 +1,74 @@
+
+<!--头部title---开始-->
+<view class="">
+  <view class="user-info" style="">
+    <view class="user-avatar">
+      遵守交规，文明出行
+    </view>
+  </view>
+</view>
+
+<!--头部title---接受-->
+<form bindsubmit="formSubmit">
+  <view class="weui-cells weui-cells_after-title">
+
+    <!--<view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">种类</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker bindchange="bindPickerChange" value="{{category_index}}" range-key="name" range="{{category}}">
+          <view class="weui-input">{{category[category_index].name}}</view>
+          <input style="display:none" name="category" value="{{category[category_index].id}}" />
+        </picker>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">分类</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker bindchange="bindPickerChange1" value="{{dcType_index}}" range-key="name" range="{{dcType}}">
+          <view class="weui-input">{{dcType[dcType_index].name}}</view>
+          <input style="display:none" name="dcType" value="{{dcType[dcType_index].id}}" />
+        </picker>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">厂商</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker bindchange="bindPickerChange2" value="{{proId_index}}" range-key="name" range="{{proId}}">
+          <view class="weui-input">{{proId[proId_index].name}}</view>
+          <input style="display:none" name="proId" value="{{proId[proId_index].id}}" />
+        </picker>
+      </view>
+    </view>-->
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">联系人</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" name="contacter" placeholder="请输入联系人" value="" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">联系电话</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" name="telephone" placeholder="请输入联系电话" value="" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">详细地址</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" name="address" placeholder="请输入详细地址" value="" />
+      </view>
+    </view>
+  </view>
+  <button style="margin-top:50rpx" type="primary" size="default" loading="{{loading}}" formType="submit"> 申请建桩 </button>
+</form>

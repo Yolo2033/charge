@@ -1,0 +1,88 @@
+
+<!--title---开始-->
+<view class="">
+  <view class="user-info">
+    <view class="user-avatar">
+      我的积分：{{userData.remainPoint}}
+    </view>
+  </view>
+</view>
+
+<!--title---结束-->
+<view class="weui-tab">
+
+  <!--tab---开始-->
+  <view class="weui-navbar">
+    <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{item}}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+
+  <!--tab---结束-->
+  <view class="weui-tab__panel">
+
+    <!--我的积分---开始-->
+    <view hidden="{{activeIndex != 0}}">
+      <view class="weui-cell" wx:for="{{recordData}}" wx:key="{{index}}">
+        <view>
+          <image src="{{icon}}" class="record_img"></image>
+        </view>
+        <view>
+          <view class="record_val">
+            <view class="record_val_1">
+              <text wx:if="{{item.upWay==1}}">充电</text>
+              <text wx:elif="{{item.upWay==2}}">购物</text>
+            </view>
+            <view class="record_val_2">+{{item.upPoint}}</view>
+          </view>
+          <view class="record_date">
+            <view class="weui-media-box__info__meta">{{item.createTime}}</view>
+          </view>
+        </view>
+      </view>
+      <block wx:if="{{hasMore}}">
+        <view class="loading-tip">下拉加载更多…</view>
+      </block>
+      <block wx:else>
+        <view class="loading-tip">没有更多内容了</view>
+      </block>
+    </view>
+
+    <!--我的积分---结束-->
+
+    <!--消费积分---开始-->
+    <view hidden="{{activeIndex != 1}}">
+      <view class="weui-cell" wx:for="{{recordData1}}" wx:key="{{index}}">
+        <view>
+          <image src="{{icon1}}" class="record_img"></image>
+        </view>
+        <view>
+          <view class="record_val">
+            <view class="record_val_1">
+              <text wx:if="{{item.upWay==3}}">充电</text>
+              <text wx:elif="{{item.upWay==4}}">购物</text>
+            </view>
+            <view class="record_val_2">-{{item.upPoint}}</view>
+          </view>
+          <view class="record_date">
+            <view class="weui-media-box__info__meta">{{item.createTime}}</view>
+          </view>
+        </view>
+      </view>
+      <block wx:if="{{hasMore}}">
+        <view class="loading-tip">下拉加载更多…</view>
+      </block>
+      <block wx:else>
+        <view class="loading-tip">没有更多内容了</view>
+      </block>
+    </view>
+
+    <!--消费积分---结束-->
+  </view>
+</view>
+<block wx:if="{{showLoading}}">
+  <view class="loading">玩命加载中…</view>
+</block>

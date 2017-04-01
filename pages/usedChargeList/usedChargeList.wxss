@@ -1,0 +1,42 @@
+/* pages/usedChargeList/usedChargeList.wxss */
+
+.map {
+  position: fixed;
+  right: 2.5em;
+  bottom: 2.5em;
+  height: 60rpx;
+  width: 60rpx;
+  z-index: 100;
+  background-image: url('https://wx.eeyycc.cn/images/map.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.user-info {
+  box-sizing: border-box;
+  height: 350rpx;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: space-around;*/
+  background-color: #4fa800;
+  color: #fec000;
+}
+
+.user-avatar {
+  text-indent: 2em;
+  text-align: left;
+  font-size: 32rpx;
+}
+
+.img-view_image {
+  width: 220px;
+  height: 200px;
+  background-image: url("https://wx.eeyycc.cn/images/device-none.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 220px;
+}
+
+.img-view {
+  text-align: center;
+}

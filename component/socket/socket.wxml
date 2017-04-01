@@ -1,0 +1,47 @@
+<template name="socket">
+  <view wx:if="{{socket}}" class="socketTitle" bindtap="hideSocket" style="height:{{windowHeight}}px">
+    <view class="socketContent">
+      <view>
+        <view class="row" style="padding:10px;">设备编号：{{dcNo}}</view>
+
+        <!--开始---循环插座状态-->
+        <view class="row" wx:for="{{socketData}}" wx:key="id">
+          <view class="item" wx:for="{{item}}" wx:for-item="num" wx:key="id">
+            <view wx:if="{{num.cpState ==0}}" data-cpPort="{{num.cpPort}}" data-cpState="{{num.cpState}}" catchtap="free">
+              <view class="row1">
+                <image src="../../images/socket.png" class="socketImg"></image>
+              </view>
+              <view class="row1">{{num.cpPort}}</view>
+            </view>
+            <view wx:elif="{{num.cpState ==4}}" data-cpPort="{{num.cpPort}}" catchtap="locking">
+              <view class="row1">
+                <image src="../../images/socket4.png" class="socketImg"></image>
+              </view>
+              <view class="row1">{{num.cpPort}}</view>
+            </view>
+            <view wx:elif="{{num.cpState ==5}}" data-cpPort="{{num.cpPort}}" catchtap="fault">
+              <view class="row1">
+                <image src="../../images/socket5.png" class="socketImg"></image>
+              </view>
+              <view class="row1">{{num.cpPort}}</view>
+            </view>
+            <view wx:else data-cpPort="{{num.cpPort}}" catchtap="used">
+              <view class="row1">
+                <image src="../../images/socket1.png" class="socketImg"></image>
+              </view>
+              <view class="row1">{{num.cpPort}}</view>
+            </view>
+          </view>
+        </view>
+
+        <!--结束---循环插座状态-->
+        <view class="row" style="margin-top:15rpx;">
+          <view class="free socketType"></view>空闲
+          <view class="used socketType"></view>占用
+          <view class="locking socketType"></view>锁定
+          <view class="fault socketType"></view>故障
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,60 @@
+.padding_60 {
+  padding-top: 40px;
+}
+
+.search-bar {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 80rpx;
+  padding: 10rpx;
+  background-color: #eee;
+  text-align: center;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.2);
+}
+
+.search-txt {
+  display: inline-block;
+  width: 100%;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  line-height: 62rpx;
+  color: #bfbfbf;
+}
+
+.search-icon {
+  background-image: url('https://wx.eeyycc.cn/images/scan.png');
+  background-position: 20rpx center;
+  background-repeat: no-repeat;
+  background-size: 40rpx;
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  z-index: 1111;
+}
+
+.row {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: space-around;
+}
+
+.row1 {
+  display: flex;
+  height: 60rpx;
+  flex-basis: 100%;
+  justify-content: space-around;
+}
+
+.item {
+  width: 120rpx;
+  height: 120rpx;
+  border: 1rpx solid #d9d9d9;
+  margin: 1rpx;
+  text-align: center;
+  position: relative;
+}

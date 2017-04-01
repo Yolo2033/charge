@@ -1,0 +1,21 @@
+.Grid {
+  display: flex;
+}
+
+.Grid-cell {
+  flex: 1;
+  height: 50px;
+  line-height: 50px;
+  background-color: #efefef;
+  text-align: center;
+  margin: 5px 2px;
+}
+
+.wx_icon {
+  height: 32px;
+  width: 32px;
+}
+
+.selColor {
+  background-color: #fec000;
+}

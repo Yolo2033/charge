@@ -1,0 +1,4 @@
+<image style="height:{{windowHeight}}px;width:{{windowWidth}}px" src="../../images/userGuide.jpg"></image>
+<image style="height:{{windowHeight}}px;width:{{windowWidth}}px" src="../../images/userGuide1.png"></image>
+<image style="height:{{windowHeight}}px;width:{{windowWidth}}px" src="../../images/userGuide2.png"></image>
+<image style="height:{{windowHeight}}px;width:{{windowWidth}}px" src="../../images/userGuide3.png"></image>

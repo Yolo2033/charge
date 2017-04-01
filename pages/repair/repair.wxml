@@ -1,0 +1,29 @@
+<form bindsubmit="formSubmit">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">设备编号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" name="dcNo" placeholder="请输入充电桩上的设备编号" value="" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">设备端口</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" name="devPort" placeholder="请输入设备端口" value="" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">故障描述</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" name="diagnosis" placeholder="请输入故障描述" value="" />
+      </view>
+    </view>
+  </view>
+  <button style="margin-top:50rpx" type="primary" size="default" loading="{{loading}}" formType="submit"> 设备报修 </button>
+</form>

@@ -1,0 +1,3 @@
+<view>
+<image src="../../images/about.jpg" style="width:{{width}}px;height: {{height+450}}px;"></image>
+</view>

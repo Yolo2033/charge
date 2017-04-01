@@ -1,0 +1,66 @@
+
+<!--端口模板---开始-->
+<import src="../../component/socket/socket.wxml" />
+<template is="socket" data="{{socket,socketData,windowHeight}}" />
+
+<!--端口模板---结束-->
+<block wx:if="{{chargeType}}">
+
+  <!--扫码界面---开始-->
+  <view style="overflow:hidden;">
+    <view style="width: 110%;background: #4fa800;border-bottom-right-radius: {{windowHeight}}rpx  {{windowHeight/10}}rpx;border-bottom-left-radius: {{windowHeight}}rpx  {{windowHeight/10}}rpx;position:relative;left:-5%;">
+      <view class="img-view">
+        <image class="img-view_image"></image>
+        <view>
+          <text style="text-align: center;color: #fff;">{{text}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="text-align:center;margin:18px 0 36px 0;">
+    <view class="botton-size" bindtap="scanCode">点击扫码</view>
+  </view>
+
+  <!--扫码界面---结束-->
+</block>
+<block wx:else>
+
+  <!--充电中界面---开始-->
+  <view class="timer--runing">
+    <view class="timer_main">
+      <view class="timer_time-wrap">
+        <view class="timer_progress_mask"></view>
+        <view class="timer_progress timer_left">
+          <view class="timer_circle timer_circle--left" style="transform: rotate({{leftDeg}}deg);"></view>
+        </view>
+        <view class="timer_progress timer_right">
+          <view class="timer_circle timer_circle--right" style="transform: rotate({{rightDeg}}deg);"></view>
+        </view>
+        <text wx:if="{{!completed}}" class="timer_time">{{remainTimeText}}</text>
+        <image wx:if="{{completed}}" class="timer_done" src="../../images/complete.png"></image>
+      </view>
+    </view>
+    <view style="text-align:center;margin:18px 0 36px 0;">
+      <view class="botton-size" bindtap="stopCharge">停止充电</view>
+    </view>
+  </view>
+
+  <!--充电中界面---结束-->
+</block>
+<view class="weui-panel__bd">
+  <view class="weui-media-box_appmsg bottom-prompt">
+    <view class="prompt-icon"></view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="prompt-text">首次使用免费获得1-10元充电费，存入账户充电使用，不提现</view>
+    </view>
+  </view>
+  <view class="weui-media-box_appmsg bottom-prompt">
+    <view class="prompt-icon"></view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="prompt-text">扫码充电--选择端口--选择支付--开始充电</view>
+    </view>
+  </view>
+</view>
+<block wx:if="{{showLoading}}">
+  <view class="loading">玩命加载中…</view>
+</block>

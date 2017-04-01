@@ -1,0 +1,27 @@
+.user-info {
+  box-sizing: border-box;
+  height: 250rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #4fa800;
+  color: #fec000;
+}
+
+.user-avatar {
+  text-align: center;
+  font-size: 50rpx;
+}
+
+page, .page, .page__bd {
+  height: 100%;
+}
+
+.page__bd {
+  padding-bottom: 0;
+}
+
+.weui-tab__content {
+  padding-top: 60px;
+  text-align: center;
+}

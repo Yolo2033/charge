@@ -1,0 +1,47 @@
+<form bindsubmit="formSubmit">
+
+  <!--<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入充值账户" name="user" />
+      </view>
+    </view>
+  </view>-->
+
+  <!--充值金额---开始-->
+  <view class="Grid">
+    <view data-money="{{item.name}}" class="Grid-cell {{item.color}}" wx:for="{{list}}" wx:key="{{item.value}}" bindtap="cost">{{item.name}}元</view>
+    <view class="Grid-cell ">
+      <text wx:if="{{selInput}}" bindtap='selInput'>自定义</text>
+      <view wx:else="{{selInput}}">
+        <input bindinput="inputChange" style="height:25px" />
+        <view style="height:25px;line-height:25px;">{{valInput}}元</view>
+      </view>
+    </view>
+    <input style="display:none" name="price" value="{{price}}" />
+  </view>
+
+  <!--充值金额---结束-->
+
+  <!--支付方式---开始-->
+  <view class="weui-cells weui-cells_after-title">
+    <radio-group bindchange="radioChange">
+      <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="{{item.value}}">
+        <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+        <image class='wx_icon' src="{{wx_icon}}"></image>
+        <view class="weui-cell__bd">{{item.name}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+          <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+        </view>
+      </label>
+    </radio-group>
+  </view>
+
+  <!--支付方式---结束-->
+  <button style="margin-top:50rpx" type="primary" size="default" loading="{{loading}}" disabled="{{false}}" formType="submit"> 立即充值 </button>
+</form>
+<view class="weui-cells weui-cells_after-title">
+  <view wx:for="{{chargeData}}" wx:key="{{index}}" class="weui-cell weui-cell-padding">
+    <view class="weui-cell__bd">充{{item.ccAmount}}送{{item.ccDiscountAmount}}</view>
+  </view>
+</view>

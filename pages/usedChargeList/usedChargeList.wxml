@@ -1,0 +1,36 @@
+
+<!--设备端口模板---开始-->
+<import src="../../component/socket/socket.wxml" />
+<template is="socket" data="{{socket,socketData,windowHeight,dcNo}}" />
+
+<!--设备端口模板---结束-->
+<view style="background: #4fa800;">
+  <view class="img-view">
+    <image class="img-view_image"></image>
+  </view>
+</view>
+<block wx:if="{{hasList}}">
+  <view class="weui-panel" wx:for="{{list}}" wx:key="{{index}}" data-dcNo="{{item.dcNo}}" bindtap="showSocket">
+    <view class="weui-panel__hd">{{item.orgName}}</view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__desc">{{item.dcName}}</view>
+        <view class="weui-media-box__info">
+          <view class="weui-media-box__info__meta">
+            <text wx:if="{{item.dcState==1}}">状态：启用</text>
+            <text wx:else>状态：离线</text>
+          </view>
+          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">插座数：{{item.port}}</view>
+          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">设备号：{{item.dcNo}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <view style="text-align:center;color:#666">--暂无使用过的充电桩--</view>
+</block>
+<view class="map" bindtap="toMap"></view>
+<block wx:if="{{showLoading}}">
+  <view class="loading">玩命加载中…</view>
+</block>

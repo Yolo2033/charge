@@ -1,0 +1,15 @@
+/* pages/setPile/setPile.wxss */
+.user-info {
+  box-sizing: border-box;
+  height: 250rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #4fa800;
+  color: #fec000;
+}
+
+.user-avatar {
+  text-align: center;
+  font-size: 50rpx;
+}

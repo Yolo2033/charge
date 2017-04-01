@@ -1,0 +1,83 @@
+
+<!--头部title---开始-->
+<view class="">
+  <view class="user-info" style="">
+    <view class="user-avatar">
+      余额：{{userData.balances}}元
+    </view>
+    <button class="user-cost" bindtap="cost">充值</button>
+  </view>
+</view>
+
+<!--头部title---接受-->
+<view class="weui-tab">
+
+  <!--tab---开始-->
+  <view class="weui-navbar">
+    <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{item}}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+
+  <!--tab---结束-->
+  <view class="weui-tab__panel">
+
+    <!--充值记录---开始-->
+    <view hidden="{{activeIndex != 0}}">
+      <view class="weui-cell" wx:for="{{recordData}}" wx:key="{{index}}">
+        <view>
+          <image src="{{icon}}" class="record_img"></image>
+        </view>
+        <view>
+          <view class="record_val">
+            <view class="record_val_1">{{item.cType}}</view>
+            <view class="record_val_2">+{{item.cAmount}}元</view>
+          </view>
+          <view class="record_date">
+            <view class="weui-media-box__info__meta">{{item.cTime}}</view>
+          </view>
+        </view>
+      </view>
+      <block wx:if="{{hasMore}}">
+        <view class="loading-tip">下拉加载更多…</view>
+      </block>
+      <block wx:else>
+        <view class="loading-tip">没有更多内容了</view>
+      </block>
+    </view>
+
+    <!--充值记录---结束-->
+
+    <!--消费记录---开始-->
+    <view hidden="{{activeIndex != 1}}">
+      <view class="weui-cell" wx:for="{{recordData1}}" wx:key="{{index}}">
+        <view>
+          <image src="{{icon1}}" class="record_img"></image>
+        </view>
+        <view>
+          <view class="record_val">
+            <view class="record_val_1">{{item.cType}}</view>
+            <view class="record_val_2">-{{item.cAmount}}</view>
+          </view>
+          <view class="record_date">
+            <view class="weui-media-box__info__meta">{{item.cTime}}</view>
+          </view>
+        </view>
+      </view>
+      <block wx:if="{{hasMore}}">
+        <view class="loading-tip">下拉加载更多…</view>
+      </block>
+      <block wx:else>
+        <view class="loading-tip">没有更多内容了</view>
+      </block>
+    </view>
+
+    <!--消费记录---结束-->
+  </view>
+</view>
+<block wx:if="{{showLoading}}">
+  <view class="loading">玩命加载中…</view>
+</block>
