@@ -23,12 +23,12 @@ view, text {
 }
 
 .img-view_image {
-  width: 220px;
+  width: 250px;
   height: 200px;
-  background-image: url("https://wx.eeyycc.cn/images/device-none.png");
-  background-position: center;
+  /*background-image: url("https://wx.eeyycc.cn/images/device-none.png");*/
+  /*background-position: center;
   background-repeat: no-repeat;
-  background-size: 220px;
+  background-size: 220px;*/
 }
 
 .botton-list-padding {
@@ -55,10 +55,10 @@ view, text {
 .prompt-icon {
   width: 60px;
   height: 60px;
-  background-image: url("https://wx.eeyycc.cn/images/prompt.png");
+  /*background-image: url("https://wx.eeyycc.cn/images/prompt.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 30px;
+  background-size: 30px;*/
 }
 
 /*-----充电中样式-----*/

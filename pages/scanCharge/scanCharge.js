@@ -26,14 +26,12 @@ Page({
     clock: '',
     dcNo: '',
     chargeType: true,
-    src: "../../images/device-none.png",
-    text: "请扫描充电桩屏幕上的二维码\n当前只支持车充电e的充电桩",
+    text: "请扫描充电桩插座上的二维码\n当前只支持车充电e的充电桩",
     remainTimeText: '',
     log: {},
     completed: false,
     showLoading: false,
     isRuning: false,
-
     leftDeg: initDeg.left,
     rightDeg: initDeg.right
   },
@@ -194,16 +192,23 @@ Page({
       duration: 1000
     })
   },
-  onLoad: function () {
+  onLoad: function (q) {
     var that = this
+    var sessionId = wx.getStorageSync("sessionId")
+    var dcNo = decodeURIComponent(q.q).split("=")[1]
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
           windowHeight: res.windowHeight,
-          windowWidth: res.windowWidth
+          windowWidth: res.windowWidth,
         })
       }
     })
+    if (dcNo != undefined) {
+      that.viewSocket(sessionId, dcNo)
+    }
+    // that.viewSocket(sessionId,dcNo)
+    // console.log(dcNo)
   },
   //--充电中界面
   startNameAnimation: function () {

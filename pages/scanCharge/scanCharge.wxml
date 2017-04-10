@@ -1,7 +1,7 @@
 
 <!--端口模板---开始-->
 <import src="../../component/socket/socket.wxml" />
-<template is="socket" data="{{socket,socketData,windowHeight}}" />
+<template is="socket" data="{{dcNo,socket,socketData,windowHeight}}" />
 
 <!--端口模板---结束-->
 <block wx:if="{{chargeType}}">
@@ -10,7 +10,7 @@
   <view style="overflow:hidden;">
     <view style="width: 110%;background: #4fa800;border-bottom-right-radius: {{windowHeight}}rpx  {{windowHeight/10}}rpx;border-bottom-left-radius: {{windowHeight}}rpx  {{windowHeight/10}}rpx;position:relative;left:-5%;">
       <view class="img-view">
-        <image class="img-view_image"></image>
+        <image src="../../images/device-none.png" class="img-view_image"></image>
         <view>
           <text style="text-align: center;color: #fff;">{{text}}</text>
         </view>
@@ -40,6 +40,9 @@
         <image wx:if="{{completed}}" class="timer_done" src="../../images/complete.png"></image>
       </view>
     </view>
+    <view style="text-align:center;color:#fff;background-color:#4fa800">
+      <text>充电设备号：{{dcNo}}\n充电端口：{{dcPort}}</text>
+    </view>
     <view style="text-align:center;margin:18px 0 36px 0;">
       <view class="botton-size" bindtap="stopCharge">停止充电</view>
     </view>
@@ -49,13 +52,17 @@
 </block>
 <view class="weui-panel__bd">
   <view class="weui-media-box_appmsg bottom-prompt">
-    <view class="prompt-icon"></view>
+    <view class="prompt-icon">
+      <image src="../../images/prompt.png" style="width:30px;height:30px;margin:15px 0 0 15px;"></image>
+    </view>
     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
       <view class="prompt-text">首次使用免费获得1-10元充电费，存入账户充电使用，不提现</view>
     </view>
   </view>
   <view class="weui-media-box_appmsg bottom-prompt">
-    <view class="prompt-icon"></view>
+    <view class="prompt-icon">
+      <image src="../../images/prompt.png" style="width:30px;height:30px;margin:15px 0 0 15px;"></image>
+    </view>
     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
       <view class="prompt-text">扫码充电--选择端口--选择支付--开始充电</view>
     </view>

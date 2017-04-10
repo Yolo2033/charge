@@ -6,7 +6,7 @@
 <!--设备端口模板---结束-->
 <view style="background: #4fa800;">
   <view class="img-view">
-    <image class="img-view_image"></image>
+    <image src="../../images/device-none.png" class="img-view_image"></image>
   </view>
 </view>
 <block wx:if="{{hasList}}">

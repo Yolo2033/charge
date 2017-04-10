@@ -29,12 +29,12 @@
 }
 
 .img-view_image {
-  width: 220px;
+  width: 250px;
   height: 200px;
-  background-image: url("https://wx.eeyycc.cn/images/device-none.png");
+  /*background-image: url("https://wx.eeyycc.cn/images/device-none.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 220px;
+  background-size: 220px;*/
 }
 
 .img-view {

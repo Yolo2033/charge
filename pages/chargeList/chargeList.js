@@ -47,6 +47,7 @@ Page({
     var that = this
     var sessionId = wx.getStorageSync("sessionId")
     var dcNo = e.currentTarget.dataset.dcno
+    this.setData({ showLoading: true })
     console.log("设备编号--------" + dcNo)
     wx.request({
       url: config.urlPort,
@@ -71,7 +72,8 @@ Page({
             socket: true,
             dcNo: dcNo,
             orgName: res.data.data.orgName,
-            dcName: res.data.data.dcName
+            dcName: res.data.data.dcName,
+            showLoading: false
           })
         }
       }
@@ -82,17 +84,18 @@ Page({
   },
   hasMore: function (point) {
     var that = this
+    this.setData({ showLoading: true })
     wx.request({
       url: config.urlChargeList,
       data: { longitude: point.longitude, latitude: point.latitude, start: that.data.start, length: 5 },
       method: 'POST',
       success: function (res) {
+        // console.log(res)
         var arrLength = res.data.data.length
         if (arrLength > 0) {
           that.setData({
             list: that.data.list.concat(res.data.data),
-            showLoading: false,
-            hasMore: false
+            showLoading: false
           })
           that.data.start += arrLength
         } else {
