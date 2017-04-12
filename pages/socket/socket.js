@@ -90,6 +90,13 @@ Page({
       method: 'GET',
       success: function (res) {
         switch (res.data.error_code) {
+          case 60011:
+            wx.showToast({
+              title: '用户不存在',
+              icon: 'loading',
+              duration: 1500
+            })
+            break;
           case 40008:
             app.login(that.getAgreement, e)
             break;
@@ -184,6 +191,8 @@ Page({
             var iconType = "loading"
             app.login(that.payRequest, payType, amount)
             break;
+          case 60011:
+            var iconType = "loading"
           case 0:
             var iconType = "success"
             wx.showToast({
