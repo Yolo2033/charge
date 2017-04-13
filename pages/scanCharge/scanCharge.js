@@ -132,25 +132,40 @@ Page({
       },
       method: 'GET',
       success: function (res) {
+        console.log(res)
         switch (res.data.error_code) {
           case 40008:
-            console.log("端口--用户身份过期")
             app.login(that.viewSocket, dcNo)
             break;
-          case 0:
-            console.log("端口--有数据")
-            var data = res.data.data.ports
-            var result = []
-            for (var i = 0, len = data.length; i < len; i += 4) {
-              result.push(data.slice(i, i + 4));
-            }
-            that.setData({
-              socketData: result,
-              socket: true,
-              dcNo: dcNo,
-              orgName: res.data.data.orgName,
-              dcName: res.data.data.dcName
+          case 60011:
+            wx.showToast({
+              title: '无效的用户',
+              icon: 'loading',
+              duration: 1500
             })
+            break;
+          case 0:
+            if (res.data.data.dcState == 0) {
+              wx.showToast({
+                title: '设备已经禁用',
+                icon: 'loading',
+                duration: 1500
+              })
+            }
+            else if (res.data.data.dcState == 1) {
+              var data = res.data.data.ports
+              var result = []
+              for (var i = 0, len = data.length; i < len; i += 4) {
+                result.push(data.slice(i, i + 4));
+              }
+              that.setData({
+                socketData: result,
+                socket: true,
+                dcNo: dcNo,
+                orgName: res.data.data.orgName,
+                dcName: res.data.data.dcName
+              })
+            }
             break;
         }
         that.setData({ showLoading: false })

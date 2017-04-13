@@ -14,6 +14,7 @@ Page({
       data: '',
       method: 'GET',
       success: function (res) {
+        console.log(res)
         wx.getSystemInfo({
           success: function (res) {
             that.setData({
@@ -21,14 +22,34 @@ Page({
             })
           }
         })
-        if (res.data.data.length != 0) {
-          that.setData({
-            list: res.data.data,
-            showLoading: false,
-            hasList: true
-          })
-        } else {
-          that.setData({ hasList: false, showLoading: false })
+        switch (res.data.error_code) {
+          case 60011:
+            that.setData({ showLoading: false })
+            wx.showToast({
+              title: "无效的用户",
+              icon: 'loading',
+              duration: 1500
+            })
+            break;
+          case 40008:
+            that.setData({ showLoading: false })
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'loading',
+              duration: 1500
+            })
+            break;
+          case 0:
+            if (res.data.data.length != 0) {
+              that.setData({
+                list: res.data.data,
+                showLoading: false,
+                hasList: true
+              })
+            } else {
+              that.setData({ hasList: false, showLoading: false })
+            }
+            break;
         }
       }
     })
@@ -51,25 +72,37 @@ Page({
       data: data,
       method: 'GET',
       success: function (res) {
+        console.log(res)
         switch (res.data.error_code) {
           case 40008:
             console.log("身份过期")
             break;
           case 0:
-            console.log("弹出端口")
-            var data = res.data.data.ports
-            var result = []
-            for (var i = 0, len = data.length; i < len; i += 4) {
-              result.push(data.slice(i, i + 4));
+            if (res.data.data.dcState == 0) {
+              that.setData({ showLoading: false })
+              wx.showToast({
+                title: '设备已禁用',
+                icon: 'loading',
+                duration: 1500
+              })
             }
-            that.setData({
-              socketData: result,
-              socket: true,
-              dcNo: dcNo,
-              orgName: res.data.data.orgName,
-              dcName: res.data.data.dcName,
-              showLoading: false
-            })
+            else if (res.data.data.dcState == 1) {
+              console.log("弹出端口")
+              var data = res.data.data.ports
+              var result = []
+              for (var i = 0, len = data.length; i < len; i += 4) {
+                result.push(data.slice(i, i + 4));
+              }
+              that.setData({
+                socketData: result,
+                socket: true,
+                dcNo: dcNo,
+                orgName: res.data.data.orgName,
+                dcName: res.data.data.dcName,
+                showLoading: false
+              })
+
+            }
             break;
         }
       }

@@ -149,6 +149,13 @@ Page({
           case 60010:
             console.log("常数不合法")
             break;
+          case 60011:
+            wx.showToast({
+              title: '用户不存在',
+              icon: 'loading',
+              duration: 1500
+            })
+            break;
           case 40008:
             app.login(that.successCharge)
             console.log("身份过期")

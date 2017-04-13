@@ -109,6 +109,7 @@ Page({
       data: data,
       method: 'POST',
       success: function (res) {
+        console.log(res)
         switch (res.data.error_code) {
           case 0:
             if (res.data.data.data != null) {
@@ -141,6 +142,14 @@ Page({
           case 60010:
             console.log("参数不合法")
             app.login(that.hasMore)
+            break;
+          case 60011:
+            that.setData({ showLoading: false })
+            wx.showToast({
+              title: '无效的用户',
+              icon: 'loading',
+              duration: 1500
+            })
             break;
           default:
             console.log("不知道的参数")

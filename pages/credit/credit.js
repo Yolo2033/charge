@@ -104,6 +104,14 @@ Page({
               })
             }
             break;
+          case 60011:
+            that.setData({ showLoading: false })
+            wx.showToast({
+              title: '无效的用户',
+              icon: 'loading',
+              duration: 1500
+            })
+            break;
         }
 
       }
