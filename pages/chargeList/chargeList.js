@@ -79,6 +79,13 @@ Page({
       }
     })
   },
+  viewSocket1:function(){
+    wx.showToast({
+      title: '设备已禁用',
+      icon: 'loading',
+      duration: 1500
+    })
+  },
   hideSocket: function () {
     this.setData({ socket: false })
   },

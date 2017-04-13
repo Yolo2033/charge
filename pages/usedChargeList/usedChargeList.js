@@ -21,11 +21,15 @@ Page({
             })
           }
         })
-        that.setData({
-          list: res.data.data,
-          showLoading: false,
-          hasList:true
-        })
+        if (res.data.data.length != 0) {
+          that.setData({
+            list: res.data.data,
+            showLoading: false,
+            hasList: true
+          })
+        } else {
+          that.setData({ hasList: false, showLoading: false })
+        }
       }
     })
   },
