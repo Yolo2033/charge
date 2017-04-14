@@ -55,14 +55,13 @@ Page({
   },
   scanCode: function () {
     wx.scanCode({
-      success: function (res) {
-        wx.setStorageSync('dcNum', res)
+      success: (res) => {
+        var str = res.result
+        var ret = str.split("=")[1]
+        wx.setStorageSync('dcNum', ret)
         wx.switchTab({
           url: '../scanCharge/scanCharge'
         })
-      },
-      fail: function (err) {
-        console.log(err)
       }
     })
   },

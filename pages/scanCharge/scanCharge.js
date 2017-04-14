@@ -37,7 +37,12 @@ Page({
   },
   onShow: function () {
     var sessionId = wx.getStorageSync("sessionId")
-    this.userChargedType(sessionId)
+    var dcNum = wx.getStorageSync("dcNum")
+    if (dcNum != '') {
+      this.viewSocket(sessionId, dcNum)
+    } else {
+      this.userChargedType(sessionId)
+    }
   },
   userChargedType: function (sessionId) {
     var that = this
@@ -287,12 +292,14 @@ Page({
   },
   onHide: function () {
     // 页面隐藏
+    wx.removeStorageSync('dcNum')
     this.setData({
       socket: false
     })
   },
   onUnload: function () {
     // 页面关闭
+    wx.removeStorageSync('dcNum')
     this.setData({
       socket: false
     })

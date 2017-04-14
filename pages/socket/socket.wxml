@@ -15,12 +15,14 @@
     </view>
     <view class="weui-media-box weui-media-box_text">
       <view>
+        第一步
         <view class="weui-flex timeSocket_bottom" wx:for="{{timeData}}" wx:key="{{index}}">
           <view class="weui-flex__item timeSocket {{time.color}}" wx:for="{{item}}" wx:for-item="time" wx:key="{{time.ocId}}" data-ocId="{{time.ocId}}" bindtap="selTime">
             <view class="placeholder">{{time.ocTime}}小时</view>
           </view>
         </view>
       </view>
+      第二步
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell-padding" data-type="3" bindtap="openCharging">
           <view class="weui-cell__hd">
@@ -47,13 +49,7 @@
       <view style='height:60px'></view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell-padding">
-          <view class="weui-cell__bd">收费方式（不足两小时按照两小时计费）：{{timeData[0][0].ocAmount}}元/{{timeData[0][0].ocTime}}小时...以此类推</view>
-        </view>
-        <view class="weui-cell weui-cell-padding">
-          <view class="weui-cell__bd">达到预设时间或主动中断将停止计费</view>
-        </view>
-        <view class="weui-cell weui-cell-padding">
-          <view class="weui-cell__bd">点击查看充电疑难解答</view>
+          <view class="weui-cell__bd">*收费方式（不足两小时按照两小时计费）：{{timeData[0][0].ocAmount}}元/{{timeData[0][0].ocTime}}小时...以此类推</view>
         </view>
       </view>
     </view>
